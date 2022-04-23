@@ -174,13 +174,10 @@ class DownloadQuery extends Query {
                         this.progressBar.reset();
                     }
                 }
-                let liveDataArray = liveData.split(" ").filter((el) => {
-                    return el !== ""
+                let liveDataArray = liveData.split(" ").filter((str) => {
+                    return str !== "" && str != "\n" && str != "~"
                 });
                 if (liveDataArray.length > 10) return;
-                liveDataArray = liveDataArray.filter((el) => {
-                    return el !== "\n"
-                });
                 let percentage = liveDataArray[1];
                 let speed = liveDataArray[5];
                 let eta = liveDataArray[7];
